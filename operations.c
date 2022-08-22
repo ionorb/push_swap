@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:56:57 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 19:41:39 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 19:47:50 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,24 @@ void	ft_rotate(t_stack *stack)
 			i--;
 		}
 		stack->array[0] = tmp;
+	}
+}
+
+void	ft_revrotate(t_stack *stack)
+{
+	int	tmp;
+	size_t	i;
+
+	if (stack->size > 1)
+	{
+		write(1, "banana", 6);
+		i = 0;
+		tmp = stack->array[0];
+		while (i < stack->size - 1)
+		{
+			stack->array[i] = stack->array[i + 1];
+			i++;
+		}
+		stack->array[stack->size - 1] = tmp;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 19:27:44 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 19:48:12 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	ft_swap(t_stack *stack);
 void	ft_push(t_stack *from, t_stack *to);
 
 void	ft_rotate(t_stack *stack);
+
+void	ft_revrotate(t_stack *stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 19:35:54 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 19:52:37 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,15 @@ void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
 	else if (ft_strcmp(op, "rb"))
 		ft_rotate(stack_b);
 	else if (ft_strcmp(op, "rr"))
+	{
+		ft_rotate(stack_a);
+		ft_rotate(stack_b);
+	}
+	else if (ft_strcmp(op, "rra"))
+		ft_revrotate(stack_a);
+	else if (ft_strcmp(op, "rrb"))
+		ft_revrotate(stack_b);
+	else if (ft_strcmp(op, "rrr"))
 	{
 		ft_rotate(stack_a);
 		ft_rotate(stack_b);
