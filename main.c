@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 18:44:33 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 19:11:19 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,17 @@ int	main(int ac, char **av)
 		stack_a->array[i - 2] = atoi(av[i]);
 		stack_a->size += 1;
 	}
+	write(1, "before:\n", 8);
 	display_stacks(stack_a, stack_b);
 	while (av[i])
 	{
 		if (ft_strcmp(av[i], "sa"))
 			ft_swap(stack_a);
+		else if (ft_strcmp(av[i], "pb"))
+			ft_push(stack_a, stack_b);
 		i++;
 	}
+	write(1, "\nafter:\n", 8);
 	display_stacks(stack_a, stack_b);
 	return (0);
 }
