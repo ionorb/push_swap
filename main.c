@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 19:11:19 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 19:23:47 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,23 @@ void	display_stacks(t_stack *stack_a, t_stack *stack_b)
 	ft_putnums(stack_b->array, stack_b->size);
 }
 
+void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
+{
+	if (ft_strcmp(op, "sa"))
+		ft_swap(stack_a);
+	else if (ft_strcmp(op, "sb"))
+		ft_swap(stack_b);
+	else if (ft_strcmp(op, "ss"))
+	{
+		ft_swap(stack_a);
+		ft_swap(stack_b);
+	}
+	else if (ft_strcmp(op, "pb"))
+		ft_push(stack_a, stack_b);
+	else if (ft_strcmp(op, "pa"))
+		ft_push(stack_b, stack_a);
+}
+
 int	main(int ac, char **av)
 {
 	int	i;
@@ -69,10 +86,7 @@ int	main(int ac, char **av)
 	display_stacks(stack_a, stack_b);
 	while (av[i])
 	{
-		if (ft_strcmp(av[i], "sa"))
-			ft_swap(stack_a);
-		else if (ft_strcmp(av[i], "pb"))
-			ft_push(stack_a, stack_b);
+		perform_operations(av[i], stack_a, stack_b);
 		i++;
 	}
 	write(1, "\nafter:\n", 8);
