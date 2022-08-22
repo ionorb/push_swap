@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 17:36:57 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 18:44:33 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	ft_putnums(int *array, int size)
 		write(1, " ", 1);
 		i++;
 	}
-	write(1, "|", 1);
+	write(1, "|\n", 2);
 }
 
 void	display_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	write(1, "a | ", 4);
 	ft_putnums(stack_a->array, stack_a->size);
-	write(1, "\nb | ", 4);
+	write(1, "b | ", 4);
 	ft_putnums(stack_b->array, stack_b->size);
 }
 
@@ -50,7 +50,7 @@ int	main(int ac, char **av)
 	t_stack *stack_a;
 	t_stack *stack_b;
 
-	i = 2;
+	i = 1;
 	if (ac < 2)
 	{
 		printf("not enough arguments!\n");
@@ -58,21 +58,20 @@ int	main(int ac, char **av)
 	}
 	stack_a = malloc(sizeof (t_stack));
 	stack_b = malloc(sizeof (t_stack));
-	if (av[1][0] == 'd')
+	stack_a->max = atoi(av[i]);
+	stack_a->array = (int *)malloc(stack_a->max * sizeof (int));
+	while (av[++i][0] >= '0' && av[i][0] <= '9')
 	{
-		stack_a->max = atoi(av[i]);
-		stack_a->array = (int *)malloc(stack_a->max * sizeof (int));
-		while (av[++i])
-		{
-			//printf("[%d]:%d\n", i, atoi(av[i]));
-			stack_a->array[i - 3] = atoi(av[i]);
-			stack_a->size += 1;
-		}
-		//printf("{%zu}", stack_a->size);
-		display_stacks(stack_a, stack_b);
+		stack_a->array[i - 2] = atoi(av[i]);
+		stack_a->size += 1;
 	}
-//	else if (av[1][0] == 'e')
-	else 
-		printf("invalid first arg!\n");
+	display_stacks(stack_a, stack_b);
+	while (av[i])
+	{
+		if (ft_strcmp(av[i], "sa"))
+			ft_swap(stack_a);
+		i++;
+	}
+	display_stacks(stack_a, stack_b);
 	return (0);
 }

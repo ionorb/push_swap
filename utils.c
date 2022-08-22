@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 18:08:27 by myaccount        ###   ########.fr       */
+/*   Created: 2022/08/22 18:05:13 by myaccount         #+#    #+#             */
+/*   Updated: 2022/08/22 18:09:21 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-typedef struct s_stack 
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	*array;
-	size_t size;
-	size_t max;
-}	t_stack;
+	int	i;
 
-int	ft_strcmp(char *s1, char *s2);
-
-void	ft_swap(t_stack *stack);
-
-#endif
+	i = 0;
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
