@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/22 19:52:37 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/22 21:14:52 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,11 @@ void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
 		ft_revrotate(stack_b);
 	else if (ft_strcmp(op, "rrr"))
 	{
-		ft_rotate(stack_a);
-		ft_rotate(stack_b);
+		ft_revrotate(stack_a);
+		ft_revrotate(stack_b);
 	}
+	display_stacks(stack_a, stack_b);
+	write(1, "\n", 1);
 }
 
 int	main(int ac, char **av)
@@ -102,6 +104,7 @@ int	main(int ac, char **av)
 	}
 	write(1, "before:\n", 8);
 	display_stacks(stack_a, stack_b);
+	write(1, "\n", 1);
 	while (av[i])
 	{
 		perform_operations(av[i], stack_a, stack_b);
