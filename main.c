@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 13:40:08 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 15:48:30 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,13 @@ int	main(int ac, char **av)
 	stack_b = initialize_empty_stack(100);
 	if (av[i][0] == 'e')
 		execute_operations(av + 2, stack_a, stack_b);
-//	else if (av[i][0] == 'r')
-//		three_number_algo(av + 2, stack_a, stack_b);
+	else if (av[i][0] == 'r')
+	{
+		write(1, "before:\n", 8);
+		display_stacks(stack_a, stack_b);
+		three_number_algo(stack_a);
+		write(1, "\nafter:\n", 8);
+		display_stacks(stack_a, stack_b);
+	}
 	return (0);
 }
