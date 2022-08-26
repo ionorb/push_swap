@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/23 18:43:33 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 13:40:08 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
 		ft_revrotate(stack_a);
 		ft_revrotate(stack_b);
 	}
-	display_stacks(stack_a, stack_b);
-	write(1, "\n", 1);
 }
 
 t_stack	*initialize_stack(char **av)
@@ -88,12 +86,14 @@ t_stack	*initialize_stack(char **av)
 
 	i = 0;
 	stack = malloc(sizeof (t_stack));
-	stack->max = atoi(av[i]);
+	stack->max = atoi(av[i++]);
+	stack->size = 0;
 	stack->array = (int *)malloc(stack->max * sizeof (int));
-	while (av[++i] && av[i][0] >= '0' && av[i][0] <= '9')
+	while (av[i] && av[i][0] >= '0' && av[i][0] <= '9')
 	{
-		stack->array[i - 2] = atoi(av[i]);
+		stack->array[i - 1] = atoi(av[i]);
 		stack->size += 1;
+		i++;
 	}
 	return (stack);
 }
@@ -105,6 +105,7 @@ t_stack	*initialize_empty_stack(int n)
 	stack = malloc(sizeof (t_stack));
 	stack->max = n;
 	stack->array = (int *)malloc(stack->max * sizeof (int));
+	stack->size = 0;
 	return (stack);
 }
 
