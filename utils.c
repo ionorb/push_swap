@@ -6,11 +6,21 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:05:13 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 15:21:06 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 20:50:14 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_putnum(int n)
+{
+	char	c;
+
+	if (n > 9)
+		ft_putnum(n / 10);
+	c = n % 10 + '0';
+	write(1, &c, 1);
+}
 
 int	ft_strcmp(char *s2, char *s1)
 {

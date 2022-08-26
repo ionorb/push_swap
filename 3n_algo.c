@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algos.c                                            :+:      :+:    :+:   */
+/*   3n_algo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:46:57 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 20:35:54 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 20:53:13 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,20 @@ void	three_number_algo(t_stack *stack_a)
 
 	i = 0;
 	whichone = ft_which_case(stack_a);
-	printf("{{%d}}", whichone);
 	if (whichone == 100)
 		ft_swap(stack_a);
 	else if (whichone == 1)
 	{
-		ft_swap(stack_a);
-		ft_revrotate(stack_a);
+		ft_sa(stack_a);
+		ft_rra(stack_a);
 	}
 	else if (whichone == 101)
-		ft_rotate(stack_a);
+		ft_ra(stack_a);
 	else if (whichone == 10)
 	{
-		ft_swap(stack_a);
-		ft_rotate(stack_a);
+		ft_sa(stack_a);
+		ft_ra(stack_a);
 	}
 	else if (whichone == 11)
-		ft_revrotate(stack_a);
+		ft_rra(stack_a);
 }

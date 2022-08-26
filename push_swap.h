@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 20:35:19 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 20:51:13 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,16 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 //algorithms
 void	three_number_algo(t_stack *stack_a);
+void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
 
 //libft
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_strcmp(char *s1, char *s2);
+void	ft_putnum(int n);
+
+//display
+void	display_stacks(t_stack *stack_a, t_stack *stack_b);
+void	ft_printarray(int *array, int size);
 
 #endif
