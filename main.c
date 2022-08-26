@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 20:51:30 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 21:23:54 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,29 @@ void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
 		ft_rrr(stack_a, stack_b);
 }
 
+int	ft_get_stack_size(char **av)
+{
+	int	i;
+	
+	i = 0;
+	while (av[i] && av[i][0] >= '0' && av[i][0] <= '9')
+		i++;
+	return (i);
+}
+
 t_stack	*initialize_stack(char **av, char c)
 {
 	int		i;
 	t_stack	*stack;
 
-	i = 0;
 	stack = malloc(sizeof (t_stack));
-	stack->max = atoi(av[i++]);
-	stack->size = 0;
+	stack->max = ft_get_stack_size(av);
+	stack->size = stack->max;
+	i = stack->size;
 	stack->type = c;
 	stack->array = (int *)malloc(stack->max * sizeof (int));
-	while (av[i] && av[i][0] >= '0' && av[i][0] <= '9')
-	{
-		stack->array[i - 1] = atoi(av[i]);
-		stack->size += 1;
-		i++;
-	}
+	while (--i >= 0)
+		stack->array[i] = atoi(av[stack->size - i - 1]);
 	return (stack);
 }
 
