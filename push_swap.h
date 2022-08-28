@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 17:24:15 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/28 18:04:03 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 //algorithms
 void	three_number_algo(t_stack *stack_a);
+void	four_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
+void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 
 //utils
 void	ft_bzero(void *s, size_t n);

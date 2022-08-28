@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 17:47:09 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/28 18:06:26 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,11 @@ int	main(int ac, char **av)
 	stack_b = initialize_empty_stack(av + 1, 'b');
 	if (ft_issorted(stack_a))
 		return (0);
-	write(1, "before:\n", 8);
-	display_stacks(stack_a, stack_b);
-	if (len < 4)
-		three_number_algo(stack_a);
-	else if (len < 6)
-		five_number_algo(stack_a, stack_b);
-	write(1, "\nafter:\n", 8);
-	display_stacks(stack_a, stack_b);
+//	write(1, "before:\n", 8);
+//	display_stacks(stack_a, stack_b);
+	if (len <= 5)
+		sort_small_stack(stack_a, stack_b);
+//	write(1, "\nafter:\n", 8);
+//	display_stacks(stack_a, stack_b);
 	return (0);
 }
