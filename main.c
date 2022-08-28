@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 17:01:32 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/28 17:47:09 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,28 @@ void	execute_operations(char **av, t_stack *stack_a, t_stack *stack_b)
 
 int	main(int ac, char **av)
 {
+	int		len;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	if (ac < 2)
 		return (0);
-	if (!ft_parsing(av + 1))
+	len = ft_parsing(av + 1);
+	if (len == -1)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
 	stack_a = initialize_stack(av + 1, 'a');
 	stack_b = initialize_empty_stack(av + 1, 'b');
-	//execute_operations(av + 2, stack_a, stack_b);
+	if (ft_issorted(stack_a))
+		return (0);
 	write(1, "before:\n", 8);
 	display_stacks(stack_a, stack_b);
-	//three_number_algo(stack_a);
-	five_number_algo(stack_a, stack_b);
+	if (len < 4)
+		three_number_algo(stack_a);
+	else if (len < 6)
+		five_number_algo(stack_a, stack_b);
 	write(1, "\nafter:\n", 8);
 	display_stacks(stack_a, stack_b);
 	return (0);
