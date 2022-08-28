@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 21:34:31 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/28 17:24:15 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,19 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 void	three_number_algo(t_stack *stack_a);
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
 
-//libft
+//utils
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_putnum(int n);
+int		ft_isnum(char *str);
+
+//stack_utils
+int		ft_top(t_stack *stack);
+int		ft_issorted(t_stack *stack);
+int		ft_ismax(t_stack *stack, int n);
+int		ft_ismin(t_stack *stack, int n);
+void	rot_to_min(t_stack *stack);
 
 //display
 void	display_stacks(t_stack *stack_a, t_stack *stack_b);
@@ -61,5 +69,8 @@ void	ft_printarray(int *array, int size);
 //initialize
 int		ft_get_stack_size(char **av);
 t_stack	*initialize_stack(char **av, char c);
-t_stack	*initialize_empty_stack(int n, char c);
+t_stack	*initialize_empty_stack(char **av, char c);
+
+//parsing
+int		ft_parsing(char **av);
 #endif
