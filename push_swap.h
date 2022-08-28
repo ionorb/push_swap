@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 20:51:13 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 21:34:31 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,8 @@ void	ft_putnum(int n);
 void	display_stacks(t_stack *stack_a, t_stack *stack_b);
 void	ft_printarray(int *array, int size);
 
+//initialize
+int		ft_get_stack_size(char **av);
+t_stack	*initialize_stack(char **av, char c);
+t_stack	*initialize_empty_stack(int n, char c);
 #endif

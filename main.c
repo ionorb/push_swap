@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/26 21:23:54 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/26 22:23:25 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,44 +38,6 @@ void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
 		ft_rrr(stack_a, stack_b);
 }
 
-int	ft_get_stack_size(char **av)
-{
-	int	i;
-	
-	i = 0;
-	while (av[i] && av[i][0] >= '0' && av[i][0] <= '9')
-		i++;
-	return (i);
-}
-
-t_stack	*initialize_stack(char **av, char c)
-{
-	int		i;
-	t_stack	*stack;
-
-	stack = malloc(sizeof (t_stack));
-	stack->max = ft_get_stack_size(av);
-	stack->size = stack->max;
-	i = stack->size;
-	stack->type = c;
-	stack->array = (int *)malloc(stack->max * sizeof (int));
-	while (--i >= 0)
-		stack->array[i] = atoi(av[stack->size - i - 1]);
-	return (stack);
-}
-
-t_stack	*initialize_empty_stack(int n, char c)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof (t_stack));
-	stack->max = n;
-	stack->type = c;
-	stack->array = (int *)malloc(stack->max * sizeof (int));
-	stack->size = 0;
-	return (stack);
-}
-
 void	execute_operations(char **av, t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
@@ -97,25 +59,24 @@ void	execute_operations(char **av, t_stack *stack_a, t_stack *stack_b)
 
 int	main(int ac, char **av)
 {
-	int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	i = 1;
 	if (ac < 2)
 	{
 		printf("not enough arguments!\n");
 		return (0);
 	}
 	stack_a = initialize_stack(av + 2, 'a');
-	stack_b = initialize_empty_stack(100, 'b');
-	if (av[i][0] == 'e')
+	stack_b = initialize_empty_stack(ft_get_stack_size(av + 2), 'b');
+	if (av[1][0] == 'e')
 		execute_operations(av + 2, stack_a, stack_b);
-	else if (av[i][0] == 'r')
+	else if (av[1][0] == 'r')
 	{
 		write(1, "before:\n", 8);
 		display_stacks(stack_a, stack_b);
-		three_number_algo(stack_a);
+		//three_number_algo(stack_a);
+		five_number_algo(stack_a, stack_b);
 		write(1, "\nafter:\n", 8);
 		display_stacks(stack_a, stack_b);
 	}
