@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 18:04:03 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/08/29 20:11:40 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	three_number_algo(t_stack *stack_a);
 void	four_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
+void	sort_big(t_stack *stack_a, t_stack *stack_b);
 
 //utils
 void	ft_bzero(void *s, size_t n);
@@ -63,6 +64,8 @@ int		ft_issorted(t_stack *stack);
 int		ft_ismax(t_stack *stack, int n);
 int		ft_ismin(t_stack *stack, int n);
 void	rot_to_min(t_stack *stack);
+//median
+int		ft_median(t_stack *stack_a);
 
 //display
 void	display_stacks(t_stack *stack_a, t_stack *stack_b);
