@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:21:41 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 17:24:28 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/04 21:00:31 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,3 @@ int	ft_ismin(t_stack *stack, int n)
 	return (1);
 }
 
-void	rot_to_min(t_stack *stack)
-{
-	size_t	i;
-
-	i = 0;
-	while ((i < stack->size) && !(ft_ismin(stack, stack->array[i])))
-		i++;
-	while ((stack->size / 2 > i) && !(ft_ismin(stack, ft_top(stack))))
-		ft_rra(stack);
-	while ((stack->size / 2 <= i) && !(ft_ismin(stack, ft_top(stack))))
-		ft_ra(stack);
-}

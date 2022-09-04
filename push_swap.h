@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/29 20:11:40 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/04 21:00:21 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,11 @@ int		ft_top(t_stack *stack);
 int		ft_issorted(t_stack *stack);
 int		ft_ismax(t_stack *stack, int n);
 int		ft_ismin(t_stack *stack, int n);
+//stack_utils_2
 void	rot_to_min(t_stack *stack);
+void	rot_to_max(t_stack *stack);
+int		get_max(t_stack *stack);
+int		get_min(t_stack *stack);
 //median
 int		ft_median(t_stack *stack_a);
 
