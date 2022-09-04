@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/04 21:00:21 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/04 23:23:09 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	ft_sb(t_stack *stack_b);
 void	ft_ss(t_stack *stack_a, t_stack *stack_b);
 
 //rotate
-void	ft_rotate(t_stack *stack);
-void	ft_revrotate(t_stack *stack);
-void	ft_ra(t_stack *stack_a);
-void	ft_rb(t_stack *stack_b);
+void	ft_rotate(t_stack *stack, char which);
+void	ft_revrotate(t_stack *stack, char which);
+//void	ft_ra(t_stack *stack_a);
+//void	ft_rb(t_stack *stack_b);
 void	ft_rr(t_stack *stack_a, t_stack *stack_b);
-void	ft_rra(t_stack *stack_a);
-void	ft_rrb(t_stack *stack_b);
+//void	ft_rra(t_stack *stack_a);
+//void	ft_rrb(t_stack *stack_b);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 //algorithms
@@ -50,6 +50,7 @@ void	four_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
+void	sort_bigger(t_stack *stack_a, t_stack *stack_b);
 
 //utils
 void	ft_bzero(void *s, size_t n);

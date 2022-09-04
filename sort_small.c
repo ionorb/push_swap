@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:18 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 18:07:11 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/04 22:14:43 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ void	three_number_algo(t_stack *stack_a)
 	else if (whichone == 1)
 	{
 		ft_sa(stack_a);
-		ft_rra(stack_a);
+		ft_revrotate(stack_a, '0');
 	}
 	else if (whichone == 101)
-		ft_ra(stack_a);
+		ft_rotate(stack_a, '0');
 	else if (whichone == 10)
 	{
 		ft_sa(stack_a);
-		ft_ra(stack_a);
+		ft_rotate(stack_a, '0');
 	}
 	else if (whichone == 11)
-		ft_rra(stack_a);
+		ft_revrotate(stack_a, '0');
 }
 
 void	four_number_algo(t_stack *stack_a, t_stack *stack_b)

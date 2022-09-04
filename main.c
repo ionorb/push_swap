@@ -6,13 +6,13 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/04 21:28:44 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/04 23:38:37 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
+/*void	perform_operations(char *op, t_stack *stack_a, t_stack *stack_b)
 {
 	if (ft_strcmp(op, "sa"))
 		ft_sa(stack_a);
@@ -55,7 +55,7 @@ void	execute_operations(char **av, t_stack *stack_a, t_stack *stack_b)
 	}
 	write(1, "\nafter:\n", 8);
 	display_stacks(stack_a, stack_b);
-}
+}*/
 
 int	main(int ac, char **av)
 {

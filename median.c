@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:20:34 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/29 20:29:07 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/04 23:28:44 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,59 @@ int	ft_median(t_stack *stack_a)
 	free(arr);
 	return (median);
 }
+/*
+int	1st_quarter(t_stack *stack_a)
+{
+	int	*arr;
+	int	median;
+
+	arr = easy_sort(stack_a);
+	if (stack_a->size % 2 == 0)
+		median = (arr[stack_a->size / 2 - 1] + arr[stack_a->size / 2]) / 2;
+	else
+		median = arr[stack_a->size / 2];
+	free(arr);
+	return (median);
+}
+
+int	2st_quarter(t_stack *stack_a)
+{
+	int	*arr;
+	int	median;
+
+	arr = easy_sort(stack_a);
+	if (stack_a->size % 2 == 0)
+		median = (arr[stack_a->size / 2 - 1] + arr[stack_a->size / 2]) / 2;
+	else
+		median = arr[stack_a->size / 2];
+	free(arr);
+	return (median);
+}
+
+int	3rd_quarter(t_stack *stack_a)
+{
+	int	*arr;
+	int	median;
+
+	arr = easy_sort(stack_a);
+	if (stack_a->size % 2 == 0)
+		median = (arr[stack_a->size / 2 - 1] + arr[stack_a->size / 2]) / 2;
+	else
+		median = arr[stack_a->size / 2];
+	free(arr);
+	return (median);
+}
+
+int	4th_quarter(t_stack *stack_a)
+{
+	int	*arr;
+	int	median;
+
+	arr = easy_sort(stack_a);
+	if (stack_a->size % 2 == 0)
+		median = (arr[stack_a->size / 2 - 1] + arr[stack_a->size / 2]) / 2;
+	else
+		median = arr[stack_a->size / 2];
+	free(arr);
+	return (median);
+}*/

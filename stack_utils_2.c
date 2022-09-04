@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 20:57:26 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/04 21:00:28 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 00:41:22 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	rot_to_min(t_stack *stack)
 	while ((i < stack->size) && !(ft_ismin(stack, stack->array[i])))
 		i++;
 	while ((stack->size / 2 > i) && !(ft_ismin(stack, ft_top(stack))))
-		ft_rra(stack);
+		ft_revrotate(stack, '0');
 	while ((stack->size / 2 <= i) && !(ft_ismin(stack, ft_top(stack))))
-		ft_ra(stack);
+		ft_rotate(stack, '0');
 }
 
 void	rot_to_max(t_stack *stack)
@@ -33,9 +33,9 @@ void	rot_to_max(t_stack *stack)
 	while ((i < stack->size) && !(ft_ismax(stack, stack->array[i])))
 		i++;
 	while ((stack->size / 2 > i) && !(ft_ismax(stack, ft_top(stack))))
-		ft_rra(stack);
+		ft_revrotate(stack, '0');
 	while ((stack->size / 2 <= i) && !(ft_ismax(stack, ft_top(stack))))
-		ft_ra(stack);
+		ft_rotate(stack, '0');
 }
 
 int		get_max(t_stack *stack)
