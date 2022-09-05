@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:20:34 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 10:33:41 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 10:41:26 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	split_between(t_stack *stack_a, t_stack *stack_b, int from, int to)
 		ft_rotate(stack_a, '0');
 }
 
-int		moves_to(t_stack *stack, int value)
+int	moves_to(t_stack *stack, int value)
 {
 	size_t	index;
 
@@ -79,7 +79,7 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 {
 	int	median;
 	int	first;
-	int third;
+	int	third;
 	int	max;
 
 	max = get_max(stack_a);

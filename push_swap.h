@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 10:33:48 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 10:35:53 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ typedef struct s_stack
 	char	type;
 }	t_stack;
 
-void	split_between(t_stack *stack_a, t_stack *stack_b, int from, int to);
-void	sort_half(t_stack *stack_a, t_stack *stack_b);
 //push
 void	ft_push(t_stack *from, t_stack *to);
 

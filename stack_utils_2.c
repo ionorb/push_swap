@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 20:57:26 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 00:41:22 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 10:40:26 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rot_to_max(t_stack *stack)
 		ft_rotate(stack, '0');
 }
 
-int		get_max(t_stack *stack)
+int	get_max(t_stack *stack)
 {
 	int	i;
 
@@ -48,7 +48,7 @@ int		get_max(t_stack *stack)
 	return (stack->array[i]);
 }
 
-int		get_min(t_stack *stack)
+int	get_min(t_stack *stack)
 {
 	int	i;
 
