@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 10:35:53 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 12:27:35 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_stack
 	char	type;
 }	t_stack;
 
+int		*easy_sort(t_stack *stack_a);
 //push
 void	ft_push(t_stack *from, t_stack *to);
 
@@ -49,7 +50,7 @@ void	three_number_algo(t_stack *stack_a);
 void	four_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
-void	sort_big(t_stack *stack_a, t_stack *stack_b);
+void	sort_big(t_stack *stack_a, t_stack *stack_b, int div);
 
 //utils
 void	ft_bzero(void *s, size_t n);
@@ -68,8 +69,6 @@ void	rot_to_min(t_stack *stack);
 void	rot_to_max(t_stack *stack);
 int		get_max(t_stack *stack);
 int		get_min(t_stack *stack);
-//median
-int		ft_median(t_stack *stack_a);
 
 //display
 void	display_stacks(t_stack *stack_a, t_stack *stack_b);
