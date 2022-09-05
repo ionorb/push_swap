@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 09:45:54 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 10:33:48 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_stack
 	char	type;
 }	t_stack;
 
-int	*easy_sort(t_stack *stack_a);
 void	split_between(t_stack *stack_a, t_stack *stack_b, int from, int to);
 void	sort_half(t_stack *stack_a, t_stack *stack_b);
 //push
@@ -53,7 +52,6 @@ void	four_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
-int	sort_bigger(t_stack *stack_a, t_stack *stack_b);
 
 //utils
 void	ft_bzero(void *s, size_t n);
