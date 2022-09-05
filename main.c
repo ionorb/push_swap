@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 12:31:54 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 16:21:46 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int	main(int ac, char **av)
 		return (0);
 	if (len <= 5)
 		sort_small_stack(stack_a, stack_b);
-	else if (len <= 500)
+	else if (len < 150)
+		sort_big(stack_a, stack_b, 3);
+	else
 		sort_big(stack_a, stack_b, 6);
 	return (0);
 }
