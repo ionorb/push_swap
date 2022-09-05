@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 12:27:35 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/05 23:00:40 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_stack
 }	t_stack;
 
 int		*easy_sort(t_stack *stack_a);
+int	get_max_between(t_stack *stack, int from, int to);
+int	get_min_between(t_stack *stack, int from, int to);
 //push
 void	ft_push(t_stack *from, t_stack *to);
 
@@ -65,6 +67,7 @@ int		ft_issorted(t_stack *stack);
 int		ft_ismax(t_stack *stack, int n);
 int		ft_ismin(t_stack *stack, int n);
 //stack_utils_2
+void	rot_to_val(t_stack *stack, int val);
 void	rot_to_min(t_stack *stack);
 void	rot_to_max(t_stack *stack);
 int		get_max(t_stack *stack);
