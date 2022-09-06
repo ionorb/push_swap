@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:56:57 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 10:17:09 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 15:55:37 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	ft_push(t_stack *from, t_stack *to)
 		from->size -= 1;
 		to->array = array_to;
 		to->size += 1;
-		//free(array_to);
 	}
 	if (to->type == 'a')
 		write(1, "pa\n", 3);
