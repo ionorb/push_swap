@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:18 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/04 22:14:43 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 01:27:00 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	three_number_algo(t_stack *stack_a)
 
 void	four_number_algo(t_stack *stack_a, t_stack *stack_b)
 {
-	rot_to_min(stack_a);
+	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
 	three_number_algo(stack_a);
 	ft_push(stack_b, stack_a);
@@ -73,9 +73,8 @@ void	four_number_algo(t_stack *stack_a, t_stack *stack_b)
 
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b)
 {
-	rot_to_min(stack_a);
+	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
-	rot_to_min(stack_a);
 	ft_push(stack_a, stack_b);
 	three_number_algo(stack_a);
 	ft_push(stack_b, stack_a);
