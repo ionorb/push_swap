@@ -6,40 +6,11 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:20:34 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 08:50:14 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 09:27:57 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	*easy_sort(t_stack *stack_a)
-{
-	size_t	i;
-	size_t	j;
-	int		swp;
-	int		*arr;
-
-	i = 0;
-	j = -1;
-	arr = malloc(stack_a->size * sizeof (int));
-	while (++j < stack_a->size)
-		arr[j] = stack_a->array[j];
-	while (++i < stack_a->size)
-	{
-		j = -1;
-		while (++j < stack_a->size)
-		{
-			if (arr[j] < arr[i])
-			{
-				swp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = swp;
-			}
-		}
-	}
-	i = 0;
-	return (arr);
-}
 
 int	moves_to(t_stack *stack, int value)
 {
@@ -92,13 +63,13 @@ void	push_or_rot(t_stack *stack_a, t_stack *stack_b, int *med, int j)
 	if (ft_top(stack_a) >= med[j] && ft_top(stack_a) < med[j + 1])
 	{
 		ft_push(stack_a, stack_b);
-		ft_rotate(stack_b, '0');
+		ft_rotate(stack_b);
 	}
 	else if (ft_top(stack_a) >= med[j + 1]
 		&& ft_top(stack_a) < med[j + 2])
 		ft_push(stack_a, stack_b);
 	else
-		ft_rotate(stack_a, '0');
+		ft_rotate(stack_a);
 }
 
 void	sort_big(t_stack *stack_a, t_stack *stack_b, int div)
@@ -123,7 +94,5 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b, int div)
 		j += 2;
 	}
 	sort_between(stack_a, stack_b);
-//	printf("med[0]:%d\n", med[0]);
-//	display_stacks(stack_a, stack_b);
 	free(med);
 }

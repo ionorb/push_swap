@@ -6,11 +6,40 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:56:57 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/04 23:57:23 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 09:29:04 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	*easy_sort(t_stack *stack_a)
+{
+	size_t	i;
+	size_t	j;
+	int		swp;
+	int		*arr;
+
+	i = 0;
+	j = -1;
+	arr = malloc(stack_a->size * sizeof (int));
+	while (++j < stack_a->size)
+		arr[j] = stack_a->array[j];
+	while (++i < stack_a->size)
+	{
+		j = -1;
+		while (++j < stack_a->size)
+		{
+			if (arr[j] < arr[i])
+			{
+				swp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = swp;
+			}
+		}
+	}
+	i = 0;
+	return (arr);
+}
 
 void	ft_swap(t_stack *stack)
 {
@@ -22,6 +51,10 @@ void	ft_swap(t_stack *stack)
 		stack->array[stack->size - 1] = stack->array[stack->size - 2];
 		stack->array[stack->size - 2] = swp;
 	}
+	if (stack->type == 'a')
+		write(1, "sa\n", 3);
+	else
+		write(1, "sa\n", 3);
 }
 
 void	ft_push(t_stack *from, t_stack *to)
@@ -48,7 +81,7 @@ void	ft_push(t_stack *from, t_stack *to)
 		write(1, "pb\n", 3);
 }
 
-void	ft_rotate(t_stack *stack, char which)
+void	ft_rotate(t_stack *stack)
 {
 	int	tmp;
 	int	i;
@@ -64,17 +97,13 @@ void	ft_rotate(t_stack *stack, char which)
 		}
 		stack->array[0] = tmp;
 	}
-	if (which == 'r')
-		write(1, "rr\n", 3);
-	else if (stack->type == 'b')
+	if (stack->type == 'b')
 		write(1, "rb\n", 3);
 	else if (stack->type == 'a')
 		write(1, "ra\n", 3);
-	else
-		write(1, "WHAAAA!\n", 8);
 }
 
-void	ft_revrotate(t_stack *stack, char which)
+void	ft_revrotate(t_stack *stack)
 {
 	int		tmp;
 	size_t	i;
@@ -90,19 +119,8 @@ void	ft_revrotate(t_stack *stack, char which)
 		}
 		stack->array[stack->size - 1] = tmp;
 	}
-	if (which == 'r')
-		write(1, "rrr\n", 4);
-	else if (stack->type == 'b')
-		write(1, "rrb\n", 4);
+	if (stack->type == 'b')
+		write(1, "rb\n", 3);
 	else if (stack->type == 'a')
-		write(1, "rra\n", 4);
-	else
-		write(1, "WHAAAA!\n", 8);
-}
-
-void	ft_rrr(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_revrotate(stack_a, 'r');
-	ft_revrotate(stack_b, 'r');
-	write(1, "rrr\n", 4);
+		write(1, "ra\n", 3);
 }
