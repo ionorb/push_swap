@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:25 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 16:58:49 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 10:25:15 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	ft_get_stack_size(char **av)
 		i++;
 	return (i);
 }
-
-//int	*make_arr(char **av)
 
 t_stack	*initialize_stack(char **av, char c)
 {
@@ -50,4 +48,12 @@ t_stack	*initialize_empty_stack(char **av, char c)
 	stack->array = (int *)malloc(stack->max * sizeof (int));
 	stack->size = 0;
 	return (stack);
+}
+
+void	free_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	free(stack_a->array);
+	free(stack_a);
+	free(stack_b->array);
+	free(stack_b);
 }

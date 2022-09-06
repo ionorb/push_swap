@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:56:57 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 09:29:04 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 10:17:09 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	ft_push(t_stack *from, t_stack *to)
 
 	if (from->size > 0)
 	{
-		i = -1;
 		array_to = malloc((to->size + 1) * sizeof (int));
 		i = -1;
 		while (++i < to->size)
@@ -74,6 +73,7 @@ void	ft_push(t_stack *from, t_stack *to)
 		from->size -= 1;
 		to->array = array_to;
 		to->size += 1;
+		//free(array_to);
 	}
 	if (to->type == 'a')
 		write(1, "pa\n", 3);
@@ -120,7 +120,7 @@ void	ft_revrotate(t_stack *stack)
 		stack->array[stack->size - 1] = tmp;
 	}
 	if (stack->type == 'b')
-		write(1, "rb\n", 3);
+		write(1, "rrb\n", 4);
 	else if (stack->type == 'a')
-		write(1, "ra\n", 3);
+		write(1, "rra\n", 4);
 }

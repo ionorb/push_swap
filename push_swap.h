@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:05:07 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 09:25:10 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 10:04:27 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	ft_printarray(int *array, int size);
 int		ft_get_stack_size(char **av);
 t_stack	*initialize_stack(char **av, char c);
 t_stack	*initialize_empty_stack(char **av, char c);
+void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 
 //parsing
 int		ft_parsing(char **av);

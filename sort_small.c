@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:18 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 09:26:04 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 10:25:36 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_which_case(t_stack *stack_a)
 		base /= 10;
 		i++;
 	}
+	free(size_arr);
 	return (final);
 }
 
@@ -75,6 +76,7 @@ void	five_number_algo(t_stack *stack_a, t_stack *stack_b)
 {
 	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
+	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
 	three_number_algo(stack_a);
 	ft_push(stack_b, stack_a);

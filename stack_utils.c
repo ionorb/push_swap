@@ -6,28 +6,11 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:21:41 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 09:26:43 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 10:19:55 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	rot_to_val(t_stack *stack, int val)
-{
-	size_t	i;
-
-	i = 0;
-	if (stack->size == 0)
-		return ;
-	while (stack->array[i] != val)
-		i++;
-	if (i >= stack->size)
-		return ;
-	while (stack->size / 2 > i && ft_top(stack) != val)
-		ft_revrotate(stack);
-	while (stack->size / 2 <= i && ft_top(stack) != val)
-		ft_rotate(stack);
-}
 
 int	get_max(t_stack *stack)
 {
@@ -68,4 +51,21 @@ int	ft_issorted(t_stack *stack)
 		i++;
 	}
 	return (1);
+}
+
+void	rot_to_val(t_stack *stack, int val)
+{
+	size_t	i;
+
+	i = 0;
+	if (stack->size == 0)
+		return ;
+	while (stack->array[i] != val)
+		i++;
+	if (i >= stack->size)
+		return ;
+	while (stack->size / 2 > i && ft_top(stack) != val)
+		ft_revrotate(stack);
+	while (stack->size / 2 <= i && ft_top(stack) != val)
+		ft_rotate(stack);
 }
