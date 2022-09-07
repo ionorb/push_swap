@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:20:34 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/07 20:06:54 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/07 20:29:23 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,7 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b, int div)
 	while (stack_a->size)
 		ft_push(stack_a, stack_b);
 	while (stack_b->size)
-	{
 		place_inbetween(stack_b, stack_a);
-		i++;
-	}
 	while (!ft_issorted(stack_a))
 		ft_rotate(stack_a);
 }
