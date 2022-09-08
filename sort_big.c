@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:20:34 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 22:40:51 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/08 00:46:28 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@ int	moves_to(t_stack *stack, int value)
 	else
 	{
 		return (index + 1);
-	}
-}
-
-void	sort_between(t_stack *stack_a, t_stack *stack_b)
-{
-	while (stack_b->size)
-	{
-		rot_to_val(stack_b, get_max(stack_b));
-		ft_push(stack_b, stack_a);
 	}
 }
 
@@ -72,161 +63,44 @@ void	push_or_rot(t_stack *stack_a, t_stack *stack_b, int *med, int j)
 		ft_rotate(stack_a);
 }
 
-int	get_next_smaller(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < (int)stack_b->size)
-	{
-		if (ft_top(stack_a) > stack_b->array[i])
-			break ;
-		i++;
-	}
-	while (j < (int)stack_b->size)
-	{
-		if (ft_top(stack_a) > stack_b->array[stack_b->size - 1 - i])
-			break ;
-		j++;
-	}
-	if (i == (int)stack_b->size)
-		write(1, "bam\n", 4);
-	if (j <= i)
-		return (stack_b->array[j]);
-	return (stack_b->array[i]);
-}
-
-int	get_next_bigger(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < (int)stack_b->size)
-	{
-		if (ft_top(stack_a) < stack_b->array[i])
-			break ;
-		i++;
-	}
-	while (j < (int)stack_b->size)
-	{
-		if (ft_top(stack_a) < stack_b->array[stack_b->size - 1 - i])
-			break ;
-		j++;
-	}
-	if (i == (int)stack_b->size)
-		write(1, "bam\n", 4);
-	if (j <= i)
-		return (stack_b->array[j]);
-	return (stack_b->array[i]);
-}
-
-int	val_ahead(t_stack *stack, int i)
+int	val_above(t_stack *stack, int i)
 {
 	if (i == (int)stack->size - 1)
 		return (stack->array[0]);
-	return (stack->array[i - 1]);
+	return (stack->array[i + 1]);
 }
 
-int	count_rot_a(t_stack *stack_a, int val)
+int	ft_isvalid(t_stack *stack_a, int i, t_stack *stack_b, int j)
 {
-	int	i;
-
-	i = 0;
-	while (i < (int)stack_a->size)
-	{
-		if (val < stack_a->array[i]
-			&& (val > val_ahead(stack_a, i)
-			|| val_ahead(stack_a, i) == get_max(stack_a)))
-			break ;
-		i++;
-	}
-	if (i >= ((int)stack_a->size - 1) / 2)
-		return ((int)stack_a->size - 1 - i);
-	return (i);
-}
-
-int	count_rot_b(t_stack *stack_a, t_stack *stack_b, int val, int j)
-{
-	int	i;
-
-	i = 0;
-	while (i < (int)stack_b->size)
-	{
-		if (stack_b->array[i] < val
-			&& (stack_b->array[i] > val_ahead(stack_a, j)
-			|| val_ahead(stack_a, j) == get_max(stack_a)))
-			break ;
-		i++;
-	}
-	if (i >= ((int)stack_b->size - 1) / 2)
-		return ((int)stack_b->size - 1 - i);
-	return (i);
-}
-
-void	rotate_to_closeset(t_stack *stack_a, t_stack *stack_b)
-{
+	int	a;
+	int	b;
+	int	above;
+	int	max;
 	int	min;
-	int	i;
-	int	j;
-	int	acount;
-	int	bcount;
-	int	aval;
-	int	bval;
 
-	i = 0;
-	min = stack_b->size + stack_a->size;
-	while (i < (int)stack_a->size)
+	a = stack_a->array[i];
+	b = stack_b->array[j];
+	above = val_above(stack_a, i);
+	max = get_max(stack_a);
+	min = get_min(stack_a);
+	if (((b < a) && (b > above || (above == max))))
+		return (1);
+	return (0);
+}
+
+void	place_inbetween(t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
+
+	i = (int)stack_a->size - 1;
+	while (i >= 0)
 	{
-		bcount = count_rot_b(stack_a, stack_b, stack_a->array[i], i);
-		j = 0;
-		while (j < (int)stack_b->size)
-		{
-			acount = count_rot_a(stack_a, stack_b->array[j]);
-			if (bcount + acount < min)
-			{
-				min = bcount + acount;
-				aval = stack_a->array[i];
-				bval = stack_b->array[j];
-			}
-			j++;
-		}
-		i++;
+		if (ft_isvalid(stack_a, i, stack_b, stack_b->size - 1))
+			break ;
+		i--;
 	}
-	rot_to_val(stack_a, aval);
-	rot_to_val(stack_b, bval);
-//	printf("aval:%d   bval: %d\n", aval, bval);
-//	display_stacks(stack_a, stack_b);
-}
-
-int	ft_bottom(t_stack *stack)
-{
-	return (stack->array[0]);
-}
-
-void	rot_to_pos(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-
-	i = 0;
-	if (stack_a->size < 2)
-		ft_push(stack_b, stack_a);
-	while (i + 1 < (int)stack_a->size && !(ft_top(stack_b) < stack_a->array[i] && (ft_top(stack_b) > stack_a->array[i + 1] || stack_a->array[i + 1] == get_max(stack_a))))
-		i++;
-	if (i == (int)stack_a->size - 1 && !(ft_top(stack_b) < stack_a->array[i] && (ft_top(stack_b) > stack_a->array[0] || stack_a->array[0] == get_max(stack_a))))
-		i++;
 	rot_to_val(stack_a, stack_a->array[i]);
-	/*while (!(ft_top(stack_b) < ft_top(stack_a)
-			&& (ft_top(stack_b) > ft_bottom(stack_a)
-			|| ft_bottom(stack_a) == get_max(stack_a))))
-	{
-		ft_rotate(stack_a);
-		display_stacks(stack_a, stack_b);
-	}*/
-	//display_stacks(stack_a, stack_b);
+	ft_push(stack_b, stack_a);
 }
 
 void	sort_big(t_stack *stack_a, t_stack *stack_b, int div)
@@ -239,7 +113,7 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b, int div)
 	j = 0;
 	asize = stack_a->size;
 	med = make_div_array(stack_a, div);
-	while (j + 2 <= div)
+	while (j <= div)
 	{
 		i = 0;
 		asize = stack_a->size;
@@ -250,24 +124,9 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b, int div)
 		}
 		j += 2;
 	}
-	i = 0;
 	while (stack_b->size)
-	{
-		//rotate_to_closeset(stack_a, stack_b);
-		rot_to_pos(stack_a, stack_b);
-		//write(1, "ban\n", 4);
-		ft_push(stack_b, stack_a);
-		i++;
-	}
-	while (!ft_issorted(stack_a))
-		ft_rotate(stack_a);
-	//display_stacks(stack_a, stack_b);
-	/*while (stack_b->size)
-	{
-		rot_to_val(stack_b, get_next_smaller(stack_a, stack_b));
-		ft_push(stack_b, stack_a);
-	}*/
-	//sort_between(stack_a, stack_b);
+		place_inbetween(stack_a, stack_b);
+	rot_to_val(stack_a, get_min(stack_a));
 	free(med);
 }
 
