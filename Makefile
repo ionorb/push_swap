@@ -14,9 +14,7 @@ CCFLAGS 	= 	-Wall -Wextra -Werror
 
 $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
-
-bonus:		$(BONUS_OBJS)
-			ar rcs $(NAME) $(BONUS_OBJS)
+			gcc $(NAME) -o push_swap
 
 all:		$(NAME)
 
