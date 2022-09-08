@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:25 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 10:25:15 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/08 17:42:31 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_stack	*initialize_stack(char **av, char c)
 	stack->array = (int *)malloc(stack->max * sizeof (int));
 	i = stack->size;
 	while (--i >= 0)
-		stack->array[i] = atoi(av[stack->size - i - 1]);
+		stack->array[i] = ft_atoi(av[stack->size - i - 1]);
 	return (stack);
 }
 
