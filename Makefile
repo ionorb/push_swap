@@ -14,9 +14,11 @@ CCFLAGS 	= 	-Wall -Wextra -Werror
 
 $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
-			gcc $(NAME) -o push_swap
 
 all:		$(NAME)
+
+mclean:		$(NAME)
+			gcc $(NAME) -o push_swap && make fclean
 
 clean:
 		rm -f $(OBJS) $(BONUS_OBJS)
