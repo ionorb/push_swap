@@ -39,7 +39,8 @@ int	ft_parsing(char **av)
 	i = 0;
 	while (av[i])
 	{
-		if (!ft_isnum(av[i]) || ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483647)
+		if (!ft_isnum(av[i]) || ft_atoi(av[i]) > 2147483647
+			|| ft_atoi(av[i]) < -2147483647)
 			return (-1);
 		i++;
 	}

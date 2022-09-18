@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:18 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/06 10:25:36 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/17 16:33:10 by yridgway         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ int	ft_which_case(t_stack *stack_a)
 void	three_number_algo(t_stack *stack_a)
 {
 	int	whichone;
-	int	i;
 
-	i = 0;
 	whichone = ft_which_case(stack_a);
 	if (whichone == 100)
 		ft_swap(stack_a);
