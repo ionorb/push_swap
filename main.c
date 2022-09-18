@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (ac < 3)
+	if (ac < 2)
 		return (0);
 	len = ft_parsing(av + 1);
 	if (len == -1)
