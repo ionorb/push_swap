@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
+/*   By: yridgway <yridgway@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 15:02:44 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/05 16:21:46 by myaccount        ###   ########.fr       */
+/*   Updated: 2023/01/21 16:20:05 by yridgway         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ int	main(int ac, char **av)
 	stack_a = initialize_stack(av + 1, 'a');
 	stack_b = initialize_empty_stack(av + 1, 'b');
 	if (ft_issorted(stack_a))
-		return (0);
-	if (len <= 5)
+		len = -1;
+	else if (len <= 5)
 		sort_small_stack(stack_a, stack_b);
 	else if (len < 150)
-		sort_big(stack_a, stack_b, 3);
+		sort_big(stack_a, stack_b, 10);
 	else
-		sort_big(stack_a, stack_b, 6);
+		sort_big(stack_a, stack_b, 16);
+	free_stacks(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:05:13 by myaccount         #+#    #+#             */
-/*   Updated: 2022/08/28 17:20:45 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/06 09:09:32 by myaccount        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,6 @@ void	ft_putnum(int n)
 		ft_putnum(n / 10);
 	c = n % 10 + '0';
 	write(1, &c, 1);
-}
-
-int	ft_strcmp(char *s2, char *s1)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 void	ft_bzero(void *s, size_t n)

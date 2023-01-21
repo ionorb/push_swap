@@ -6,7 +6,7 @@
 /*   By: myaccount <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:18 by myaccount         #+#    #+#             */
-/*   Updated: 2022/09/04 22:14:43 by myaccount        ###   ########.fr       */
+/*   Updated: 2022/09/17 16:33:10 by yridgway         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,37 +35,36 @@ int	ft_which_case(t_stack *stack_a)
 		base /= 10;
 		i++;
 	}
+	free(size_arr);
 	return (final);
 }
 
 void	three_number_algo(t_stack *stack_a)
 {
 	int	whichone;
-	int	i;
 
-	i = 0;
 	whichone = ft_which_case(stack_a);
 	if (whichone == 100)
-		ft_sa(stack_a);
+		ft_swap(stack_a);
 	else if (whichone == 1)
 	{
-		ft_sa(stack_a);
-		ft_revrotate(stack_a, '0');
+		ft_swap(stack_a);
+		ft_revrotate(stack_a);
 	}
 	else if (whichone == 101)
-		ft_rotate(stack_a, '0');
+		ft_rotate(stack_a);
 	else if (whichone == 10)
 	{
-		ft_sa(stack_a);
-		ft_rotate(stack_a, '0');
+		ft_swap(stack_a);
+		ft_rotate(stack_a);
 	}
 	else if (whichone == 11)
-		ft_revrotate(stack_a, '0');
+		ft_revrotate(stack_a);
 }
 
 void	four_number_algo(t_stack *stack_a, t_stack *stack_b)
 {
-	rot_to_min(stack_a);
+	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
 	three_number_algo(stack_a);
 	ft_push(stack_b, stack_a);
@@ -73,9 +72,9 @@ void	four_number_algo(t_stack *stack_a, t_stack *stack_b)
 
 void	five_number_algo(t_stack *stack_a, t_stack *stack_b)
 {
-	rot_to_min(stack_a);
+	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
-	rot_to_min(stack_a);
+	rot_to_val(stack_a, get_min(stack_a));
 	ft_push(stack_a, stack_b);
 	three_number_algo(stack_a);
 	ft_push(stack_b, stack_a);
